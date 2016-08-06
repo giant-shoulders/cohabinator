@@ -1,0 +1,14 @@
+:root {
+  --mainColor: red;
+}
+
+.dogs-list {
+  width: 300px;
+  padding: 5px 15px;
+  color: #333;
+  background: white;
+
+  & h4 {
+    color: var(--mainColor);
+  }
+}

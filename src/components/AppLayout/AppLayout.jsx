@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const AppLayout = ({ children }) => (
   <div>
-    <div>DogLog</div>
+    <h2>DogLog</h2>
     {children}
   </div>
 );

@@ -1,9 +1,11 @@
+import './DogsList.css';
+
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 const DogsList = ({ dogs }) => (
-  <div>
-    <h2>Dogs</h2>
+  <div className="dogs-list">
+    <h4>Dogs</h4>
     <ul>
       {dogs.map(({ name }) => (
         <li key={name}>{name}</li>
