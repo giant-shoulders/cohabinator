@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const cssnext = require('postcss-cssnext');
 const babelLoader = 'babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-object-rest-spread';
 
 const PROD = process.env.NODE_ENV === 'production';
@@ -65,11 +66,11 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx?$/, loaders: jsxLoaders, exclude: /node_modules/, includes: ['./src/app.jsx', path.join(__dirname, 'src')] },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
-      { test: /\.s[ac]ss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.css$/, loaders: ['style-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.(png|jpg|ttf|woff|svg|otf|eot|svg).*?$/, loader: 'file-loader' },
     ],
   },
+  postcss: () => [cssnext],
   devtool: 'source-map',
   resolve: {
     extensions: ['', '.js', '.jsx'],
