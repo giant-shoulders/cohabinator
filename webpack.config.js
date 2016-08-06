@@ -1,3 +1,5 @@
+/* eslint global-require: 0 */
+
 const path = require('path');
 const webpack = require('webpack');
 const babelLoader = 'babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-object-rest-spread';
@@ -64,18 +66,30 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, loaders: jsxLoaders, exclude: /node_modules/, includes: ['./src/app.jsx', path.join(__dirname, 'src')] },
-      { test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader' },
-      { test: /\.(png|jpg|ttf|woff|svg|otf|eot|svg).*?$/, loader: 'file-loader' },
+      {
+        test: /\.jsx?$/,
+        loaders: jsxLoaders,
+        exclude: /node_modules/,
+        includes: [
+          './src/app.jsx',
+          path.join(__dirname, 'src'),
+        ],
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!postcss-loader',
+      },
+      {
+        test: /\.(png|jpg|ttf|woff|svg|otf|eot|svg).*?$/,
+        loader: 'file-loader',
+      },
     ],
   },
-  postcss(webpack) {
+  postcss(wbpk) {
     return [
-      require('postcss-import')({ addDependencyTo: webpack }),
+      require('postcss-import')({ addDependencyTo: wbpk }),
       require('postcss-url')(),
-      require('postcss-cssnext')({
-        browsers: 'last 2 versions',
-      }),
+      require('postcss-cssnext')(),
       require('postcss-reporter')(),
       require('postcss-browser-reporter')(),
     ];
