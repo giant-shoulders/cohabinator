@@ -13,10 +13,11 @@
     "url": "git+ssh://git@github.com/thezanke/DogLog.git"
   },
   "keywords": [
-    "auralex",
-    "rlx",
+    "doglog",
     "react",
-    "redux"
+    "redux",
+    "postcss",
+    "cssnext"
   ],
   "author": "Alex Howard (thezanke@gmail.com)",
   "license": "ISC",
