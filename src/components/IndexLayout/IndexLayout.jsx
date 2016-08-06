@@ -1,7 +1,11 @@
 import React from 'react';
 
+import DogsListContainer from '../../containers/DogsListContainer';
+
 const IndexLayout = () => (
-  <div>IndexLayout</div>
+  <div>
+    <DogsListContainer />
+  </div>
 );
 
 export default IndexLayout;
