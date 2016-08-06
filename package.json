@@ -1,9 +1,9 @@
 {
   "name": "DogLog",
   "version": "0.1.0",
-  "description": "Track your dog's eating and potty habits",
+  "description": "Track your dogs' eating and potty habits.",
   "private": true,
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "dev": "webpack-dev-server --hot --progress --colors",
     "build": "NODE_ENV=production webpack --progress --colors"
