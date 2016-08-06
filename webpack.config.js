@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const babelLoader = 'babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-object-rest-spread';
 
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
@@ -27,10 +26,8 @@ entry.push('./src/app.jsx');
  **/
 
 const jsxLoaders = [];
-
 if (DEV) jsxLoaders.push('react-hot');
-
-jsxLoaders.push(babelLoader);
+jsxLoaders.push('babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-object-rest-spread');
 
 /**
  * Plugins
