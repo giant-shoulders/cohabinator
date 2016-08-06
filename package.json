@@ -1,7 +1,7 @@
 {
   "name": "DogLog",
   "version": "0.1.0",
-  "description": "Track your dog's eating and pottying",
+  "description": "Track your dog's eating and potty habits",
   "private": true,
   "main": "index.js",
   "scripts": {
