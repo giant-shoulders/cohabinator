@@ -1,25 +1,26 @@
 {
-  "name": "DogLog",
-  "version": "0.1.4",
-  "description": "Track your dogs' eating and potty habits.",
+  "name": "cohabinator",
+  "version": "0.2.0",
+  "description": "Sync up with your roommates",
   "private": true,
-  "main": "index.html",
+  "main": "",
   "scripts": {
-    "dev": "webpack-dev-server --hot --progress --colors",
+    "dev": "webpack-dev-server --hot --progress --colors --content-base www/",
     "build": "NODE_ENV=production webpack --progress --colors"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/thezanke/DogLog.git"
+    "url": "git+ssh://git@github.com/giant-shoulders/cohabinator.git"
   },
   "keywords": [
-    "doglog",
+    "cohabinator",
+    "roommates",
     "react",
     "redux",
     "postcss",
     "cssnext"
   ],
-  "author": "Alex Howard (thezanke@gmail.com)",
+  "author": "Alex Howard (alex.howard@giantshoulders.net)",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.11.4",
