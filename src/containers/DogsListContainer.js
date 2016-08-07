@@ -1,23 +1,6 @@
-import './DogsList.css';
-
-import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import ItemList from '../components/ItemList';
 
-const DogsList = ({ dogs }) => (
-  <div className="dogs-list">
-    <h4>Dogs</h4>
-    <ul>
-      {dogs.map(({ name }) => (
-        <li key={name}>{name}</li>
-      ))}
-    </ul>
-  </div>
-);
+const mapStateToProps = ({ dogs }) => ({ items: dogs });
 
-DogsList.propTypes = {
-  dogs: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
-
-const mapStateToProps = ({ dogs }) => ({ dogs });
-
-export default connect(mapStateToProps)(DogsList);
+export default connect(mapStateToProps)(ItemList);

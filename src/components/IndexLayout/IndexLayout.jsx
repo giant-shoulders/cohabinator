@@ -4,7 +4,7 @@ import DogsListContainer from '../../containers/DogsListContainer';
 
 const IndexLayout = () => (
   <div>
-    <DogsListContainer />
+    <DogsListContainer header="dogs" />
   </div>
 );
 
