@@ -3,12 +3,12 @@ import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';
 
 import AppLayout from './components/AppLayout';
-import IndexLayout from './components/IndexLayout';
+import IndexLayoutContainer from './containers/IndexLayoutContainer';
 
 const appRoutes = {
   path: '/',
   component: AppLayout,
-  indexRoute: { component: IndexLayout },
+  indexRoute: { component: IndexLayoutContainer },
 };
 
 const Routes = ({ store }) => (

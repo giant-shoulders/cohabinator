@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import dogsReducer from './dogsReducer';
+import modules from './modules';
+import pets from './pets';
+import petTypes from './petTypes';
 
 export default combineReducers({
-  dogs: dogsReducer,
+  modules, pets, petTypes,
 });

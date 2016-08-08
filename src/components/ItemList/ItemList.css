@@ -1,14 +1,16 @@
-:root {
-  --mainColor: red;
-}
-
 .item-list {
-  width: 300px;
-  padding: 5px 15px;
-  color: #333;
   background: white;
-
+  color: #333;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 15px;
+  vertical-align: top;
+  width: 300px;
   & h4 {
-    color: var(--mainColor);
+    border-bottom: 1px solid gray(125);
+    padding-bottom: 10px;
+  }
+  & ul {
+    padding-left: 20px;
   }
 }

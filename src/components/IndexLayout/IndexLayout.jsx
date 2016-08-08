@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-import DogsListContainer from '../../containers/DogsListContainer';
+import ItemsList from '../ItemList';
 
-const IndexLayout = () => (
+const IndexLayout = ({ modules, pets, petTypes }) => (
   <div>
-    <DogsListContainer header="dogs" />
+    <ItemsList header="modules" items={modules} />
+    <ItemsList header="pets" items={pets} />
+    <ItemsList header="petTypes" items={petTypes} />
   </div>
 );
+
+IndexLayout.propTypes = {
+  modules: PropTypes.arrayOf(PropTypes.object),
+  pets: PropTypes.arrayOf(PropTypes.object),
+  petTypes: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default IndexLayout;
