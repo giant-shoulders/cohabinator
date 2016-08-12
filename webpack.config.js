@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
@@ -26,8 +27,15 @@ entry.push('./src/app.jsx');
  **/
 
 const jsxLoaders = [];
+
 if (DEV) jsxLoaders.push('react-hot');
-jsxLoaders.push('babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-object-rest-spread');
+
+jsxLoaders.push('babel-loader?'
+  + 'presets[]=es2015,'
+  + 'presets[]=react,'
+  + 'presets[]=stage-0,'
+  + 'plugins[]=transform-object-rest-spread'
+);
 
 /**
  * Plugins
@@ -39,13 +47,34 @@ const plugins = [
     __DEV__: DEV,
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   }),
+  new HtmlWebpackPlugin({
+    title: 'Cohabinator',
+    template: 'src/index.ejs',
+    minify: {
+      html5: true,
+      collapseWhitespace: true,
+      preserveLineBreaks: false,
+      removeComments: true,
+    },
+  }),
 ];
 
 if (PROD) {
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false,
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true,
+        drop_console: true,
+        warnings: true,
+      },
+      output: {
+        comments: false,
       },
     })
   );
@@ -58,8 +87,8 @@ if (PROD) {
 module.exports = {
   entry,
   output: {
-    path: `${__dirname}/build`,
-    filename: 'bundle.js',
+    path: `${__dirname}/public`,
+    filename: 'app.js',
   },
   module: {
     loaders: [
@@ -91,7 +120,7 @@ module.exports = {
       require('postcss-browser-reporter')(),
     ];
   },
-  devtool: 'source-map',
+  devtool: !PROD ? 'source-map' : null,
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
