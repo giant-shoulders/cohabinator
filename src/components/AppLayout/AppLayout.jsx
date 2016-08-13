@@ -5,7 +5,7 @@ const AppLayout = ({ children }) => (
     <div className="container">
       <div className="row">
         <div className="column">
-          <h2>Cohabinator</h2>
+          <h4>Cohabinator</h4>
         </div>
       </div>
       {children}
