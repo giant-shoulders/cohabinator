@@ -4,12 +4,10 @@ import { Router, browserHistory } from 'react-router';
 
 import 'milligram-cssnext';
 import AppLayout from './components/AppLayout';
-import IndexLayoutContainer from './containers/IndexLayoutContainer';
 
 const appRoutes = {
   path: '/',
   component: AppLayout,
-  indexRoute: { component: IndexLayoutContainer },
 };
 
 const Routes = ({ store }) => (

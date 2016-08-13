@@ -1,20 +1,14 @@
-import React, { PropTypes } from 'react';
+import './AppLayout.css';
 
-const AppLayout = ({ children }) => (
-  <div>
-    <div className="container">
-      <div className="row">
-        <div className="column">
-          <h2>Cohabinator</h2>
-        </div>
-      </div>
-      {children}
+import React from 'react';
+
+const AppLayout = () => (
+  <div className="container-body">
+    <div>
+      <h1>Cohabinator</h1>
+      <h5>Coming soon.</h5>
     </div>
   </div>
 );
-
-AppLayout.propTypes = {
-  children: PropTypes.node,
-};
 
 export default AppLayout;
