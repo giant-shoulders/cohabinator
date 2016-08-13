@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, hashHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 
 import AppLayout from './components/AppLayout';
 import IndexLayoutContainer from './containers/IndexLayoutContainer';
@@ -13,7 +13,7 @@ const appRoutes = {
 
 const Routes = ({ store }) => (
   <Provider store={store}>
-    <Router history={hashHistory} routes={appRoutes} />
+    <Router history={browserHistory} routes={appRoutes} />
   </Provider>
 );
 
