@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import modules from './modules';
-import pets from './pets';
-import petTypes from './petTypes';
+import pets from './petsReducer';
+import petTypes from './petTypesReducer';
+import user from './userReducer';
 
-export default combineReducers({ modules, pets, petTypes });
+export default combineReducers({ user, pets, petTypes });

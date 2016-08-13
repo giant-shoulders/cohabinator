@@ -1,14 +1,15 @@
+import 'milligram-cssnext';
+
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 
-import 'milligram-cssnext';
-import AppLayout from './components/AppLayout';
+import AppLayoutContainer from './containers/AppLayoutContainer';
 import IndexLayoutContainer from './containers/IndexLayoutContainer';
 
 const appRoutes = {
   path: '/',
-  component: AppLayout,
+  component: AppLayoutContainer,
   indexRoute: { component: IndexLayoutContainer },
 };
 

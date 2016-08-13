@@ -3,6 +3,6 @@ const initialState = [
   { id: 2, name: 'Buddy', petType: 1 },
 ];
 
-const pets = (state = initialState) => state;
+const petsReducer = (state = initialState) => state;
 
-export default pets;
+export default petsReducer;

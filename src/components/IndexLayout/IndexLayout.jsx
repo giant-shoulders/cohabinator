@@ -2,11 +2,8 @@ import React, { PropTypes } from 'react';
 
 import ItemsList from '../ItemList';
 
-const IndexLayout = ({ modules, pets, petTypes }) => (
+const IndexLayout = ({ pets, petTypes }) => (
   <div className="row">
-    <div className="column">
-      <ItemsList header="modules" items={modules} />
-    </div>
     <div className="column">
       <ItemsList header="pets" items={pets} />
     </div>
@@ -17,7 +14,6 @@ const IndexLayout = ({ modules, pets, petTypes }) => (
 );
 
 IndexLayout.propTypes = {
-  modules: PropTypes.arrayOf(PropTypes.object),
   pets: PropTypes.arrayOf(PropTypes.object),
   petTypes: PropTypes.arrayOf(PropTypes.object),
 };
