@@ -1,5 +1,6 @@
 {
   "projects": {
-    "production": "cohabinator"
+    "production": "cohabinator",
+    "staging": "cohabinator-staging"
   }
 }
