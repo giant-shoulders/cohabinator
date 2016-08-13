@@ -3,7 +3,6 @@ import update from 'react-addons-update';
 import { USER_STATE_CHANGED } from '../actions/user';
 
 const initialState = {
-  connected: false,
   creating: false,
   loggingIn: false,
   loggingOut: false,
