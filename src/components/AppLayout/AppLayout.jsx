@@ -1,5 +1,3 @@
-import './AppLayout.css';
-
 import React, { Component, PropTypes } from 'react';
 
 import LoginLayoutContainer from '../../containers/LoginLayoutContainer';

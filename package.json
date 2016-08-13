@@ -41,7 +41,6 @@
     "firebase": "^3.2.1",
     "html-webpack-plugin": "^2.22.0",
     "isomorphic-fetch": "^2.2.1",
-    "milligram-cssnext": "^1.0.1",
     "postcss": "^5.1.1",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-cssnext": "^2.7.0",

@@ -1,4 +1,4 @@
-import 'milligram-cssnext';
+import './main.css';
 
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
