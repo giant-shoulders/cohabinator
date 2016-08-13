@@ -1,7 +1,5 @@
 /* eslint global-require: 0, no-console: 0 */
 
-import './lib/bootstrap/bootstrap.css';
-
 import React from 'react';
 import { render as reactRender } from 'react-dom';
 

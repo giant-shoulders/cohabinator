@@ -3,10 +3,16 @@ import React, { PropTypes } from 'react';
 import ItemsList from '../ItemList';
 
 const IndexLayout = ({ modules, pets, petTypes }) => (
-  <div>
-    <ItemsList header="modules" items={modules} />
-    <ItemsList header="pets" items={pets} />
-    <ItemsList header="petTypes" items={petTypes} />
+  <div className="row">
+    <div className="column">
+      <ItemsList header="modules" items={modules} />
+    </div>
+    <div className="column">
+      <ItemsList header="pets" items={pets} />
+    </div>
+    <div className="column">
+      <ItemsList header="petTypes" items={petTypes} />
+    </div>
   </div>
 );
 
