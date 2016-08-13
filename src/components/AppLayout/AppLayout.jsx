@@ -1,12 +1,27 @@
 import './AppLayout.css';
 
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
-import LoginLayout from '../LoginLayout';
+import LoginLayoutContainer from '../../containers/LoginLayoutContainer';
 
-const AppLayout = ({ user, children, onUserLogin, onUserCreate }) => (
-  <div>
-    {user ? (
+class AppLayout extends Component {
+  static propTypes = {
+    userLoggedIn: PropTypes.bool.isRequired,
+    children: PropTypes.node,
+    bindToAuth: PropTypes.func.isRequired,
+    onUserLogout: PropTypes.func.isRequired,
+  }
+
+  componentDidMount() {
+    this.props.bindToAuth();
+  }
+
+  render() {
+    const { userLoggedIn, children, onUserLogout } = this.props;
+
+    if (!userLoggedIn) return <LoginLayoutContainer />;
+
+    return (
       <div className="container">
         <div className="row">
           <div className="column">
@@ -14,18 +29,10 @@ const AppLayout = ({ user, children, onUserLogin, onUserCreate }) => (
           </div>
         </div>
         {children}
+        <button className="button" onClick={onUserLogout}>Logout</button>
       </div>
-    ) : (
-      <LoginLayout onUserLogin={onUserLogin} onUserCreate={onUserCreate} />
-    )}
-  </div>
-);
-
-AppLayout.propTypes = {
-  user: PropTypes.object,
-  children: PropTypes.node,
-  onUserLogin: PropTypes.func.isRequired,
-  onUserCreate: PropTypes.func.isRequired,
-};
+    );
+  }
+}
 
 export default AppLayout;

@@ -1,29 +1,55 @@
 import firebase from 'firebase';
 
-export const USER_LOGGED_IN = 'USER_LOGGED_IN';
-export const USER_LOGGED_OUT = 'USER_LOGGED_IN';
+// constants
+export const USER_STATE_CHANGED = 'USER_STATE_CHANGED';
+export const USER_AUTH_ERROR = 'USER_AUTH_ERROR';
+export const CREATING_NEW_USER = 'CREATING_NEW_USER';
+export const USER_LOGGING_IN = 'USER_LOGGING_IN';
+export const USER_LOGGING_OUT = 'USER_LOGGING_OUT';
 
-const userLoggedIn = (user) => ({ type: USER_LOGGED_IN, user });
-const userLoggedOut = (user) => ({ type: USER_LOGGED_OUT, user });
+// internal action creators
+const userStateChanged = user => ({ type: USER_STATE_CHANGED, user });
+const userAuthError = err => ({ type: USER_AUTH_ERROR, err });
+const creatingNewUser = () => ({ type: CREATING_NEW_USER });
+const userLoggingIn = () => ({ type: USER_LOGGING_IN });
+const userLoggingOut = () => ({ type: USER_LOGGING_OUT });
 
-export const createNewUser = (email, password) => dispatch => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(user => {
-      dispatch(userLoggedIn(user));
-    })
-    .catch(err => { console.warn('Error: ', err.message); });
-};
+// exported action creators
+export const bindToAuthStateChanged = () => (
+  dispatch => {
+    firebase.auth()
+      .onAuthStateChanged(user => {
+        dispatch(userStateChanged(user));
+      });
+  }
+);
 
-export const loginUser = (email, password) => dispatch => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(user => {
-      dispatch(userLoggedIn(user));
-    })
-    .catch(err => { console.warn('Error: ', err.message); });
-};
+export const userCreate = (email, password) => (
+  dispatch => {
+    dispatch(creatingNewUser());
 
-export const logoutUser = () => dispatch => {
-  firebase.auth().signOut()
-    .then(() => { dispatch(userLoggedOut()); })
-    .catch(err => { console.warn('Error: ', err.message); });
-};
+    firebase.auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(err => { dispatch(userAuthError(err)); });
+  }
+);
+
+export const userLogin = (email, password) => (
+  dispatch => {
+    dispatch(userLoggingIn());
+
+    firebase.auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(err => { dispatch(userAuthError(err)); });
+  }
+);
+
+export const userLogout = () => (
+  dispatch => {
+    dispatch(userLoggingOut());
+
+    firebase.auth()
+      .signOut()
+      .catch(err => { dispatch(userAuthError(err)); });
+  }
+);

@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
 
 import AppLayout from '../components/AppLayout';
-import { createNewUser, loginUser, logoutUser } from '../actions/user';
+import { bindToAuthStateChanged, userLogout } from '../actions/user';
 
-const mapStateToProps = ({ user }) => ({ user });
+const mapStateToProps = ({
+  user: { account },
+}) => ({
+  userLoggedIn: !!account,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  onUserCreate(email, password) {
-    dispatch(createNewUser(email, password));
-  },
-  onUserLogin(email, password) {
-    dispatch(loginUser(email, password));
+  bindToAuth() {
+    dispatch(bindToAuthStateChanged());
   },
   onUserLogout() {
-    dispatch(logoutUser());
+    dispatch(userLogout());
   },
 });
 
