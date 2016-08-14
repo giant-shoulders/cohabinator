@@ -20,7 +20,7 @@ class AppLayout extends Component {
     this.props.bindToAuth();
   }
 
-  onLogoutClick = () => {
+  onSignOutClick = () => {
     const { onUserLogout } = this.props;
     const { router } = this.context;
 
@@ -38,7 +38,7 @@ class AppLayout extends Component {
         <h3 className="header text-center">Cohabinator</h3>
         {children}
         <div className="footer">
-          <button className="button" onClick={this.onLogoutClick}>Logout</button>
+          <button className="button" onClick={this.onSignOutClick}>Sign Out</button>
         </div>
       </div>
     );
