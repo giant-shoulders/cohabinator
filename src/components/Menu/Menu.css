@@ -1,0 +1,17 @@
+.menu-row {
+  & a.menu-item {
+    cursor: pointer;
+  }
+
+  & .menu-item {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid gray(225);
+  }
+
+  &:last-child {
+    & .menu-item {
+      border-bottom: none;
+    }
+  }
+}

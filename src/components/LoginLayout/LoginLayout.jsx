@@ -25,8 +25,8 @@ const LoginLayout = ({ onUserLogin, onUserCreate }) => {
             <input type="email" id="emailField" ref={node => { emailField = node; }} />
             <label htmlFor="passField">Password</label>
             <input type="password" id="passField" ref={node => { passField = node; }} />
-            <input type="submit" className="button" value="Sign In" />
-            <button className="button button-outline" onClick={onCreateClick}>Sign Up</button>
+            <input type="submit" className="button sign-in" value="Sign In" />
+            <button className="button button-outline" onClick={onCreateClick}>Register</button>
           </fieldset>
         </form>
       </div>
