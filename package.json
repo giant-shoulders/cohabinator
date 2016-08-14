@@ -1,6 +1,6 @@
 {
   "name": "cohabinator",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Sync up with your roommates",
   "private": true,
   "main": "www/index.html",
