@@ -1,33 +1,45 @@
+import './AppLayout.css';
+
 import React, { Component, PropTypes } from 'react';
 
 import LoginLayoutContainer from '../../containers/LoginLayoutContainer';
 
 class AppLayout extends Component {
   static propTypes = {
-    userLoggedIn: PropTypes.bool.isRequired,
     children: PropTypes.node,
     bindToAuth: PropTypes.func.isRequired,
+    userLoggedIn: PropTypes.bool.isRequired,
     onUserLogout: PropTypes.func.isRequired,
   }
+
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  };
 
   componentDidMount() {
     this.props.bindToAuth();
   }
 
+  onLogoutClick = () => {
+    const { onUserLogout } = this.props;
+    const { router } = this.context;
+
+    onUserLogout();
+    router.push('/');
+  }
+
   render() {
-    const { userLoggedIn, children, onUserLogout } = this.props;
+    const { userLoggedIn, children } = this.props;
 
     if (!userLoggedIn) return <LoginLayoutContainer />;
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="column">
-            <h4>Cohabinator</h4>
-          </div>
-        </div>
+      <div>
+        <h3 className="header text-center">Cohabinator</h3>
         {children}
-        <button className="button" onClick={onUserLogout}>Logout</button>
+        <div className="footer">
+          <button className="button" onClick={this.onLogoutClick}>Logout</button>
+        </div>
       </div>
     );
   }

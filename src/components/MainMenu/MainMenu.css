@@ -1,0 +1,9 @@
+.coming-soon {
+  &::after {
+    content: "[Coming soon]";
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+    font-size: 1rem;
+  }
+}
