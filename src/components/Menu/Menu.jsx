@@ -7,7 +7,6 @@ import MenuItem from './MenuItem';
 class Menu extends Component {
   static propTypes = {
     items: PropTypes.arrayOf(PropTypes.object),
-    mainMenu: PropTypes.bool,
   }
 
   static contextTypes = {
@@ -15,7 +14,7 @@ class Menu extends Component {
   }
 
   render() {
-    const { items, mainMenu } = this.props;
+    const { items } = this.props;
 
     return (
       <div className="menu container text-center">
