@@ -1,5 +1,3 @@
-import './AppLayout.css';
-
 import React, { Component, PropTypes } from 'react';
 
 import LoginLayoutContainer from '../../containers/LoginLayoutContainer';
@@ -31,15 +29,17 @@ class AppLayout extends Component {
   render() {
     const { userLoggedIn, children } = this.props;
 
-    if (!userLoggedIn) return <LoginLayoutContainer />;
-
     return (
       <div>
-        <h3 className="header text-center">Cohabinator</h3>
-        {children}
-        <div className="footer">
-          <button className="button" onClick={this.onSignOutClick}>Sign Out</button>
-        </div>
+        <h2 className="header text-center">Cohabinator</h2>
+        {userLoggedIn ? (
+          <div>
+            {children}
+            <div className="footer">
+              <button className="button" onClick={this.onSignOutClick}>Sign Out</button>
+            </div>
+          </div>
+        ) : <LoginLayoutContainer />}
       </div>
     );
   }

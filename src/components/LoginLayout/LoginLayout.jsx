@@ -18,7 +18,6 @@ const LoginLayout = ({ onUserLogin, onUserCreate }) => {
   return (
     <div className="flex-center">
       <div className="login-container">
-        <h2 className="text-center">Cohabinator</h2>
         <form onSubmit={onFormSubmit}>
           <fieldset>
             <label htmlFor="emailField">Email</label>
@@ -32,7 +31,7 @@ const LoginLayout = ({ onUserLogin, onUserCreate }) => {
       </div>
     </div>
   );
-}
+};
 
 LoginLayout.propTypes = {
   onUserLogin: PropTypes.func.isRequired,
