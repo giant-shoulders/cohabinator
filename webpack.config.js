@@ -106,10 +106,33 @@ module.exports = {
         loader: 'style-loader!css-loader!postcss-loader',
       },
       {
-        test: /\.(png|jpg|ttf|woff|svg|otf|eot|svg).*?$/,
+        test: /\.(ttf|woff|otf|eot|)$/,
         loader: 'file-loader',
       },
+      {
+        test: /.*\.(gif|png|jpe?g|svg)$/i,
+        loaders: [
+          'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack',
+        ],
+      },
     ],
+  },
+  imageWebpackLoader: {
+    pngquant: {
+      quality: '65-90',
+      speed: 4,
+    },
+    svgo: {
+      plugins: [
+        {
+          removeViewBox: false,
+        },
+        {
+          removeEmptyAttrs: false,
+        },
+      ],
+    },
   },
   postcss(wbpk) {
     return [
