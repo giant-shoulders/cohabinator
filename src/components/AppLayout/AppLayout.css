@@ -1,7 +1,12 @@
 .container-body {
+  color: black;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+h1, h5 {
+  margin: 0;
 }
