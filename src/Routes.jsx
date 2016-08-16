@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 
-import 'milligram-cssnext';
 import AppLayout from './components/AppLayout';
 
 const appRoutes = {
