@@ -1,11 +1,12 @@
 /* eslint global-require: 0, no-console: 0 */
 
 import firebase from 'firebase';
+import { AppContainer } from 'react-hot-loader';
 import React from 'react';
-import { render as reactRender } from 'react-dom';
-
+import { render } from 'react-dom';
 import configureStore from './store';
-import Routes from './Routes';
+
+import App from './components/App';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyDmjT8hDZJdL_GqrfsvKtN_0jf8kp16aDM',
@@ -15,21 +16,25 @@ firebase.initializeApp({
 });
 
 const store = configureStore({});
+const rootEl = document.getElementById('root');
 
-const render = (Component) => {
-  reactRender(<Component store={store} />, document.getElementById('root'));
-};
+render(
+  <AppContainer>
+    <App store={store} />
+  </AppContainer>,
+  rootEl
+);
 
 if (module.hot) {
-  module.hot.accept('./Routes', () => {
-    const newRoutes = require('./Routes').default;
-    render(newRoutes);
+  module.hot.accept('./components/App', () => {
+    // If you use Webpack 2 in ES modules mode, you can
+    // use <App /> here rather than require() a <NextApp />.
+    const NextApp = require('./components/App').default;
+    render(
+      <AppContainer>
+        <NextApp store={store} />
+      </AppContainer>,
+      rootEl
+    );
   });
 }
-
-store.subscribe(() => {
-  render(Routes);
-  if (__DEV__) console.log('state', store.getState());
-});
-
-store.dispatch({ type: 'APP_INIT', store });

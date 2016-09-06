@@ -1,14 +1,14 @@
-import './main.css';
+import './App.css';
 
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 
-import AppLayoutContainer from './containers/AppLayoutContainer';
-import MainMenu from './components/MainMenu';
-import PetsLayout from './components/Pets/PetsLayout';
-import Pets from './components/Pets/Pets';
-import NewPet from './components/Pets/NewPet';
+import AppLayoutContainer from '../../containers/AppLayoutContainer';
+import MainMenu from '../MainMenu';
+import PetsLayout from '../Pets/PetsLayout';
+import Pets from '../Pets/Pets';
+import NewPet from '../Pets/NewPet';
 
 const petsRoutes = {
   path: 'pets',
@@ -26,14 +26,14 @@ const routes = {
   childRoutes: [petsRoutes],
 };
 
-const Routes = ({ store }) => (
+const App = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory} routes={routes} />
   </Provider>
 );
 
-Routes.propTypes = {
+App.propTypes = {
   store: PropTypes.object.isRequired,
 };
 
-export default Routes;
+export default App;
