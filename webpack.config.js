@@ -75,7 +75,7 @@ if (DEV) plugins.push(new webpack.HotModuleReplacementPlugin());
 module.exports = {
   entry,
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
     publicPath: '/',
   },
