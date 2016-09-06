@@ -15,27 +15,13 @@ const entry = [];
 
 if (DEV) {
   entry.push(
+    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server'
   );
 }
 
 entry.push('./src/app.jsx');
-
-/**
- * JSX Loaders
- **/
-
-const jsxLoaders = [];
-
-if (DEV) jsxLoaders.push('react-hot');
-
-jsxLoaders.push('babel-loader?'
-  + 'presets[]=es2015,'
-  + 'presets[]=react,'
-  + 'presets[]=stage-0,'
-  + 'plugins[]=transform-object-rest-spread'
-);
 
 /**
  * Plugins
@@ -80,6 +66,8 @@ if (PROD) {
   );
 }
 
+if (DEV) plugins.push(new webpack.HotModuleReplacementPlugin());
+
 /**
  * Export Webpack Config
  **/
@@ -87,19 +75,16 @@ if (PROD) {
 module.exports = {
   entry,
   output: {
-    path: `${__dirname}/public`,
-    filename: 'app.js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: jsxLoaders,
-        exclude: /node_modules/,
-        includes: [
-          './src/app.jsx',
-          path.join(__dirname, 'src'),
-        ],
+        loaders: ['babel'],
+        include: path.join(__dirname, 'src'),
       },
       {
         test: /\.css$/,
@@ -143,7 +128,10 @@ module.exports = {
       require('postcss-browser-reporter')(),
     ];
   },
-  devtool: !PROD ? 'source-map' : null,
+  devtool: !PROD ? 'eval-source-map' : null,
+  devServer: {
+    historyApiFallback: !PROD,
+  },
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
