@@ -6,9 +6,9 @@ import { Router, browserHistory } from 'react-router';
 
 import AppLayout from '../../containers/AppLayout';
 import Home from '../Home';
-import NewPet from '../Pets/NewPet';
-import Pets from '../Pets/Pets';
-import PetsLayout from '../Pets/PetsLayout';
+import NewPet from '../../containers/pets/NewPet';
+import Pets from '../pets/Pets';
+import PetsLayout from '../pets/PetsLayout';
 
 const petsRoutes = {
   path: 'pets',

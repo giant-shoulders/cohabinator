@@ -1,11 +1,11 @@
 /* eslint global-require: 0, no-console: 0 */
 
 import firebase from 'firebase';
-import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import { render } from 'react-dom';
-import configureStore from './store';
+import { AppContainer } from 'react-hot-loader';
 
+import configureStore from './store';
 import App from './components/App';
 
 firebase.initializeApp({
