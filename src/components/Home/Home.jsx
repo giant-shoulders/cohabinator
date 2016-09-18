@@ -10,10 +10,10 @@ const indexMenuItems = [
   { name: 'Chat' },
 ];
 
-const IndexLayout = () => { console.log(indexMenuItems); return (
+const IndexLayout = () => (
   <div className="container text-center">
     <Menu items={indexMenuItems} mainMenu />
   </div>
-);};
+);
 
 export default IndexLayout;
