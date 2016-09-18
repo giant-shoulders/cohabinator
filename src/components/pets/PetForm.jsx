@@ -1,24 +1,43 @@
 import React, { PropTypes } from 'react';
 
-const PetForm = ({ petTypes, pet }) => (
-  <form>
-    <fieldset>
-      <label htmlFor="name">Name</label>
-      <input type="text" name="name" placeholder="Pet Name" />
-      <label htmlFor="petType">Pet Type</label>
-      <select name="petType">
-        {petTypes.map(({ id, name }) => (
-          <option key={id} value={id}>{name}</option>
-        ))}
-      </select>
-      <input type="submit" value="Create" className="button-primary" />
-    </fieldset>
-  </form>
+import Form from '../Form';
+
+const PetForm = ({
+  name, petType, petTypes, onSubmit,
+  updateFieldValue,
+}) => (
+  <Form onSubmit={onSubmit}>
+    <label htmlFor="name">Name</label>
+    <input
+      type="text"
+      name="name"
+      placeholder="Pet Name"
+      value={name}
+      onChange={updateFieldValue('name')}
+    />
+    <label htmlFor="petType">Pet Type</label>
+    <select
+      name="petType"
+      onChange={updateFieldValue('petType')}
+    >
+      {petTypes.map(({ id, name: petTypeName }) => (
+        <option
+          key={id}
+          value={id}
+          selected={petType && id === petType}
+        >
+          {petTypeName}
+        </option>
+      ))}
+    </select>
+  </Form>
 );
 
 PetForm.propTypes = {
   petTypes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  pet: PropTypes.object,
+  name: PropTypes.string,
+  petType: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default PetForm;

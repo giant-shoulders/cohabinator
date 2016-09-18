@@ -2,9 +2,9 @@ import React from 'react';
 
 import PetForm from '../../containers/PetForm';
 
-const NewPet = () => (
+const NewPet = ({ createPet }) => (
   <div>
-    <PetForm />
+    <PetForm onSubmit={createPet} />
   </div>
 );
 

@@ -1,9 +1,9 @@
 import { handleActions } from 'redux-actions';
 
 const initialState = [
-  { id: 1, name: 'dog' },
-  { id: 2, name: 'cat' },
-  { id: 3, name: 'bird' },
+  { id: 'SlQ7WpTcCa', name: 'dog' },
+  { id: 'JFG5KDAYCz', name: 'cat' },
+  { id: 'DfNBoGAzZV', name: 'bird' },
 ];
 
 export default handleActions({}, initialState);

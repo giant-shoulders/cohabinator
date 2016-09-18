@@ -6,7 +6,7 @@ import { Router, browserHistory } from 'react-router';
 
 import AppLayout from '../../containers/AppLayout';
 import Home from '../Home';
-import NewPet from '../pets/NewPet';
+import NewPet from '../../containers/NewPet';
 import Pets from '../pets/Pets';
 import PetsLayout from '../pets/PetsLayout';
 
