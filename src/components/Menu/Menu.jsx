@@ -18,7 +18,7 @@ class Menu extends Component {
 
     return (
       <div className="menu container text-center">
-        {items.map(item =>
+        {items && items.map(item =>
           <MenuItem key={item.name} {...item} />
         )}
       </div>

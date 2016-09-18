@@ -4,11 +4,11 @@ import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 
-import AppLayoutContainer from '../../containers/AppLayoutContainer';
-import MainMenu from '../MainMenu';
-import PetsLayout from '../Pets/PetsLayout';
-import Pets from '../Pets/Pets';
+import AppLayout from '../../containers/AppLayout';
+import Home from '../Home';
 import NewPet from '../Pets/NewPet';
+import Pets from '../Pets/Pets';
+import PetsLayout from '../Pets/PetsLayout';
 
 const petsRoutes = {
   path: 'pets',
@@ -21,8 +21,8 @@ const petsRoutes = {
 
 const routes = {
   path: '/',
-  component: AppLayoutContainer,
-  indexRoute: { component: MainMenu },
+  component: AppLayout,
+  indexRoute: { component: Home },
   childRoutes: [petsRoutes],
 };
 

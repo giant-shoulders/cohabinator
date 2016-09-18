@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import AppLayout from '../components/AppLayout';
 import { bindToAuthStateChanged, userLogout } from '../actions/user';
 
-const mapStateToProps = ({
-  user: { account },
-}) => ({
-  userLoggedIn: !!account,
+const mapStateToProps = ({ user }) => ({
+  userLoggedIn: !!user.account,
 });
 
 const mapDispatchToProps = (dispatch) => ({

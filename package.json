@@ -44,7 +44,6 @@
     "firebase-tools": "^3.0.7",
     "html-webpack-plugin": "^2.22.0",
     "image-webpack-loader": "^2.0.0",
-    "isomorphic-fetch": "^2.2.1",
     "postcss": "^5.1.1",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-cssnext": "^2.7.0",
@@ -60,8 +59,10 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
     "redux": "^3.5.2",
+    "redux-actions": "^0.12.0",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"

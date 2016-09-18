@@ -81,21 +81,10 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'src'),
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader',
-      },
-      {
-        test: /\.(ttf|woff|otf|eot|)$/,
-        loader: 'file-loader',
-      },
-      {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
+      { test: /\.jsx?$/, loaders: ['babel'], include: path.join(__dirname, 'src') },
+      { test: /\.css$/, loader: 'style!css!postcss' },
+      { test: /\.(ttf|woff|otf|eot|)$/, loader: 'file' },
+      { test: /.*\.(gif|png|jpe?g|svg)$/i,
         loaders: [
           'file?hash=sha512&digest=hex&name=[hash].[ext]',
           'image-webpack',
@@ -128,7 +117,7 @@ module.exports = {
       require('postcss-browser-reporter')(),
     ];
   },
-  devtool: !PROD ? 'eval-source-map' : null,
+  devtool: !PROD ? 'source-map' : null,
   devServer: {
     historyApiFallback: !PROD,
   },

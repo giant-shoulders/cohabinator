@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import LoginLayoutContainer from '../../containers/LoginLayoutContainer';
+import LoginLayout from '../../containers/LoginLayout';
 
 class AppLayout extends Component {
   static propTypes = {
@@ -39,7 +39,7 @@ class AppLayout extends Component {
               <button className="button" onClick={this.onSignOutClick}>Sign Out</button>
             </div>
           </div>
-        ) : <LoginLayoutContainer />}
+        ) : <LoginLayout />}
       </div>
     );
   }

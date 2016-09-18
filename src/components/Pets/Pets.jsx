@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 
 import Menu from '../Menu';
 
-const Pets = (props, context) => {
+const Pets = () => {
   const petsMenuItems = [
     { name: 'New Pet', path: '/pets/new' },
-    { name: 'Back', onClick: context.router.goBack },
+    { name: 'Back', path: '/' },
   ];
 
   return <Menu items={petsMenuItems} />;

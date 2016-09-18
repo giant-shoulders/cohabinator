@@ -1,4 +1,5 @@
 import update from 'react-addons-update';
+import { handleActions } from 'redux-actions';
 
 import { USER_STATE_CHANGED } from '../actions/user';
 
@@ -10,23 +11,14 @@ const initialState = {
   error: null,
 };
 
-const userReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case USER_STATE_CHANGED: {
-      const newState = {
-        account: action.user,
-        creating: false,
-        loggingIn: false,
-        loggingOut: false,
-      };
-
-      if (action.user) newState.error = null;
-
-      return update(state, { $merge: newState });
-    }
-    default:
-      return state;
-  }
-};
-
-export default userReducer;
+export default handleActions({
+  USER_STATE_CHANGED: (state, { payload }) => update(state, {
+    $merge: {
+      account: payload,
+      creating: false,
+      loggingIn: false,
+      loggingOut: false,
+      error: payload ? null : state.error,
+    },
+  }),
+}, initialState);

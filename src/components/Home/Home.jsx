@@ -1,4 +1,4 @@
-import './MainMenu.css';
+import './Home.css';
 
 import React from 'react';
 
@@ -10,10 +10,10 @@ const indexMenuItems = [
   { name: 'Chat' },
 ];
 
-const IndexLayout = () => (
+const IndexLayout = () => { console.log(indexMenuItems); return (
   <div className="container text-center">
     <Menu items={indexMenuItems} mainMenu />
   </div>
-);
+);};
 
 export default IndexLayout;

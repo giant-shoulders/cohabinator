@@ -1,18 +1,12 @@
 import firebase from 'firebase';
-
-// constants
-export const USER_STATE_CHANGED = 'USER_STATE_CHANGED';
-export const USER_AUTH_ERROR = 'USER_AUTH_ERROR';
-export const CREATING_NEW_USER = 'CREATING_NEW_USER';
-export const USER_LOGGING_IN = 'USER_LOGGING_IN';
-export const USER_LOGGING_OUT = 'USER_LOGGING_OUT';
+import { createAction } from 'redux-actions';
 
 // internal action creators
-const userStateChanged = user => ({ type: USER_STATE_CHANGED, user });
-const userAuthError = err => ({ type: USER_AUTH_ERROR, err });
-const creatingNewUser = () => ({ type: CREATING_NEW_USER });
-const userLoggingIn = () => ({ type: USER_LOGGING_IN });
-const userLoggingOut = () => ({ type: USER_LOGGING_OUT });
+const userStateChanged = createAction('USER_STATE_CHANGED');
+const userAuthError = createAction('USER_AUTH_ERROR');
+const creatingNewUser = createAction('CREATING_NEW_USER');
+const userLoggingIn = createAction('USER_LOGGING_IN');
+const userLoggingOut = createAction('USER_LOGGING_OUT');
 
 // exported action creators
 export const bindToAuthStateChanged = () => (
