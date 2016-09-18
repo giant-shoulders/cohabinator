@@ -1,7 +1,7 @@
+import * as actions from '../actions/user';
+
 import update from 'react-addons-update';
 import { handleActions } from 'redux-actions';
-
-import { USER_STATE_CHANGED } from '../actions/user';
 
 const initialState = {
   creating: false,
@@ -12,13 +12,13 @@ const initialState = {
 };
 
 export default handleActions({
-  USER_STATE_CHANGED: (state, { payload }) => update(state, {
+  [actions.userStateChanged]: (state, action) => update(state, {
     $merge: {
-      account: payload,
+      account: action.payload,
       creating: false,
       loggingIn: false,
       loggingOut: false,
-      error: payload ? null : state.error,
+      error: action.payload ? null : state.error,
     },
   }),
 }, initialState);

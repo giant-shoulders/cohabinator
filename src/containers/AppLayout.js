@@ -7,7 +7,7 @@ const mapStateToProps = ({ user }) => ({
   userLoggedIn: !!user.account,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   bindToAuth() {
     dispatch(bindToAuthStateChanged());
   },

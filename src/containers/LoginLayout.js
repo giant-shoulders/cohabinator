@@ -5,7 +5,7 @@ import { userCreate, userLogin } from '../actions/user';
 
 const mapStateToProps = ({ user }) => ({ user });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onUserCreate(email, password) {
     dispatch(userCreate(email, password));
   },

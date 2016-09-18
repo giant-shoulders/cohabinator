@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import LoginLayout from '../../containers/LoginLayout';
+import LoginLayout from '../containers/LoginLayout';
 
 class AppLayout extends Component {
   static propTypes = {

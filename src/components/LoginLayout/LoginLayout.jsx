@@ -6,7 +6,7 @@ const LoginLayout = ({ onUserLogin, onUserCreate }) => {
   let emailField;
   let passField;
 
-  const onFormSubmit = e => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
     onUserLogin(emailField.value, passField.value);
   };
@@ -21,9 +21,9 @@ const LoginLayout = ({ onUserLogin, onUserCreate }) => {
         <form onSubmit={onFormSubmit}>
           <fieldset>
             <label htmlFor="emailField">Email</label>
-            <input type="email" id="emailField" ref={node => { emailField = node; }} />
+            <input type="email" id="emailField" ref={(node) => { emailField = node; }} />
             <label htmlFor="passField">Password</label>
-            <input type="password" id="passField" ref={node => { passField = node; }} />
+            <input type="password" id="passField" ref={(node) => { passField = node; }} />
             <input type="submit" className="button sign-in" value="Sign In" />
             <button className="button button-outline" onClick={onCreateClick}>Register</button>
           </fieldset>

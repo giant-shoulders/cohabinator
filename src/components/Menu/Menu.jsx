@@ -1,29 +1,23 @@
 import './Menu.css';
 
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 import MenuItem from './MenuItem';
 
-class Menu extends Component {
-  static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object),
-  }
+const Menu = ({ items }) => (
+  <div className="menu container text-center">
+    {items && items.map(item =>
+      <MenuItem key={item.name} {...item} />
+    )}
+  </div>
+);
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-  }
+Menu.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+};
 
-  render() {
-    const { items } = this.props;
-
-    return (
-      <div className="menu container text-center">
-        {items && items.map(item =>
-          <MenuItem key={item.name} {...item} />
-        )}
-      </div>
-    );
-  }
-}
+Menu.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
 
 export default Menu;

@@ -1,19 +1,11 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-const NewPet = ({ petTypes }) => (
+import PetForm from '../../containers/PetForm';
+
+const NewPet = () => (
   <div>
-    <form>
-      <fieldset>
-        <pre>
-          {JSON.stringify(petTypes, null, 2)}
-        </pre>
-      </fieldset>
-    </form>
+    <PetForm />
   </div>
 );
-
-NewPet.propTypes = {
-  petTypes: PropTypes.array.isRequired,
-};
 
 export default NewPet;

@@ -3,10 +3,14 @@
   "plugins": [
     "react"
   ],
+  "env": {
+    "browser": true,
+  },
   "extends": "airbnb",
   "rules": {
     "no-underscore-dangle": 0,
-    "max-len": 0
+    "max-len": 0,
+    "import/imports-first": 0
   },
   "globals": {
     "__DEV__": true
