@@ -2,7 +2,7 @@ import './App.css';
 
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 import AppLayout from '../../containers/AppLayout';
 import Home from '../Home';

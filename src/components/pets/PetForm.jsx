@@ -3,10 +3,9 @@ import React, { PropTypes } from 'react';
 import Form from '../Form';
 
 const PetForm = ({
-  name, petType, petTypes, onSubmit,
-  updateFieldValue,
+  name, petType, petTypes, onSubmit, updateFieldValue,
 }) => (
-  <Form onSubmit={onSubmit}>
+  <Form onSubmit={() => onSubmit(name, petType)}>
     <label htmlFor="name">Name</label>
     <input
       type="text"
@@ -19,12 +18,12 @@ const PetForm = ({
     <select
       name="petType"
       onChange={updateFieldValue('petType')}
+      value={petType}
     >
       {petTypes.map(({ id, name: petTypeName }) => (
         <option
           key={id}
           value={id}
-          selected={petType && id === petType}
         >
           {petTypeName}
         </option>
@@ -38,6 +37,7 @@ PetForm.propTypes = {
   name: PropTypes.string,
   petType: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
+  updateFieldValue: PropTypes.func.isRequired,
 };
 
 export default PetForm;
