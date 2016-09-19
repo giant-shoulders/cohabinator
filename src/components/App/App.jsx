@@ -1,3 +1,5 @@
+/* eslint react/forbid-prop-types: 0 */
+
 import './App.css';
 
 import React, { PropTypes } from 'react';
@@ -8,7 +10,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import AppLayout from '../../containers/AppLayout';
 import Home from '../Home';
 import NewPet from '../../containers/NewPet';
-import Pets from '../pets/Pets';
+import Pets from '../../containers/Pets';
 import PetsLayout from '../pets/PetsLayout';
 
 const petsRoutes = {

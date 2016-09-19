@@ -3,9 +3,10 @@ import React, { PropTypes } from 'react';
 import Form from '../Form';
 
 const PetForm = ({
-  name, petType, petTypes, onSubmit, updateFieldValue,
+  name, petType, petTypes,
+  updateFieldValue, onSubmit, onCancel,
 }) => (
-  <Form onSubmit={() => onSubmit(name, petType)}>
+  <Form onSubmit={() => onSubmit(name, petType)} onCancel={onCancel}>
     <label htmlFor="name">Name</label>
     <input
       type="text"
@@ -37,6 +38,7 @@ PetForm.propTypes = {
   name: PropTypes.string,
   petType: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
   updateFieldValue: PropTypes.func.isRequired,
 };
 

@@ -16,3 +16,11 @@
 .text-center {
   text-align: center;
 }
+
+.table-actions button {
+  margin-left: 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

@@ -13,16 +13,18 @@ const Form = ({
   >
     <fieldset>
       {children}
-      <input
-        type="submit"
-        className="button-primary"
-        value={submitText}
-      />
-      {onCancel && (
-        <button type="button" className="button-primary" onClick={onCancel}>
-          {cancelText}
-        </button>
-      )}
+      <div className="clearFix">
+        <input
+          type="submit"
+          className="button-primary float-left"
+          value={submitText}
+        />
+        {onCancel && (
+          <button type="button" className="button-primary float-right" onClick={onCancel}>
+            {cancelText}
+          </button>
+        )}
+      </div>
     </fieldset>
   </form>
 );

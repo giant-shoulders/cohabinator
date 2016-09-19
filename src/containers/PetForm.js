@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 
 import PetForm from '../components/pets/PetForm';
-import { updateFieldValue } from '../actions/forms';
+import { updateFieldValue, resetForm } from '../actions/forms';
 import { selectPetTypes } from '../selectors';
 
 const mapStateToProps = state => ({
@@ -15,6 +16,10 @@ const mapDispatchToProps = dispatch => ({
     return (e) => {
       dispatch(updateFieldValue('pet', fieldName, e.target.value));
     };
+  },
+  onCancel() {
+    dispatch(resetForm('pets'));
+    dispatch(push('/pets'));
   },
 });
 
