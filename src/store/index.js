@@ -1,6 +1,8 @@
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { createHistory } from 'history';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { reduxReactRouter } from 'redux-router';
 
 import rootReducer from '../reducers';
 

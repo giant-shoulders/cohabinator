@@ -2,7 +2,7 @@ import './App.css';
 
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { browserHistory } from 'react-router';
+import { ReduxRouter } from 'redux-router';
 
 import AppLayout from '../../containers/AppLayout';
 import Home from '../Home';
@@ -28,7 +28,7 @@ const routes = {
 
 const App = ({ store }) => (
   <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
+    <ReduxRouter routes={routes} />
   </Provider>
 );
 
