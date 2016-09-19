@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 
 import NewPet from '../components/pets/NewPet';
 import { resetForm } from '../actions/forms';
@@ -8,6 +9,7 @@ const mapDispatchToProps = (dispatch) => ({
   createPet(name, petType) {
     dispatch(createPet({ name, petType }));
     dispatch(resetForm('pet'));
+    dispatch(push('/pets'));
   },
 });
 

@@ -2,7 +2,8 @@ import './App.css';
 
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import AppLayout from '../../containers/AppLayout';
 import Home from '../Home';
@@ -28,7 +29,10 @@ const routes = {
 
 const App = ({ store }) => (
   <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
+    <Router
+      routes={routes}
+      history={syncHistoryWithStore(browserHistory, store)}
+    />
   </Provider>
 );
 
